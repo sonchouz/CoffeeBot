@@ -1,4 +1,3 @@
-#Точка запуска бота
 import asyncio
 import logging
 
@@ -8,12 +7,15 @@ from aiogram.client.default import DefaultBotProperties
 from aiogram.exceptions import TelegramNetworkError
 
 from config import BOT_TOKEN
+
 from handlers.start import router as start_router
+from handlers.news import router as news_router
+from handlers.promotions import router as promotions_router
+from handlers.bonuses import router as bonuses_router
 
 
 async def main():
     logging.basicConfig(level=logging.INFO)
-
 
     bot = Bot(
         token=BOT_TOKEN,
@@ -23,7 +25,11 @@ async def main():
     )
 
     dp = Dispatcher()
+
     dp.include_router(start_router)
+    dp.include_router(news_router)
+    dp.include_router(promotions_router)
+    dp.include_router(bonuses_router)
 
     try:
         print("Проверка подключения к Telegram...")

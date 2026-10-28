@@ -32,26 +32,6 @@ async def help_handler(message: Message):
     )
 
 
-@router.message(F.text == "🎁 Бонусы")
-async def bonuses_handler(message: Message):
-    await message.answer(
-        "🎁 Просмотр бонусного баланса "
-        "появится в следующем модуле."
-    )
-
-
-@router.message(F.text == "🆕 Новинки")
-async def news_handler(message: Message):
-    await message.answer(
-        "🆕 Здесь будут отображаться новинки кофейни."
-    )
-
-
-@router.message(F.text == "🔥 Акции")
-async def promotions_handler(message: Message):
-    await message.answer(
-        "🔥 Здесь будут отображаться актуальные акции."
-    )
 
 
 @router.message(F.text == "🔔 Уведомления")
